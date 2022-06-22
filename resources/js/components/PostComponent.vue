@@ -1,7 +1,8 @@
 <template>
     <div>
         <SinglePostComponent></SinglePostComponent>
-        <div>Name: {{ name }}</div>
+        <div>Name: {{ name}}</div>
+        <div>Job: {{ job }}</div>
         <button @click="sayHello">Hello</button>
         <button @click="sayHi">Hi</button>
     </div>
@@ -26,6 +27,12 @@
             },
             sayHi() {
                 console.log('Hi!')
+            }
+        },
+
+        computed: {
+            job() {
+                return this.name + ' работает в булочной'
             }
         },
 

@@ -5276,6 +5276,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "PostComponent",
@@ -5291,6 +5292,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     sayHi: function sayHi() {
       console.log('Hi!');
+    }
+  },
+  computed: {
+    job: function job() {
+      return this.name + ' работает в булочной';
     }
   },
   components: {
@@ -27993,6 +27999,8 @@ var render = function () {
       _c("SinglePostComponent"),
       _vm._v(" "),
       _c("div", [_vm._v("Name: " + _vm._s(_vm.name))]),
+      _vm._v(" "),
+      _c("div", [_vm._v("Job: " + _vm._s(_vm.job))]),
       _vm._v(" "),
       _c("button", { on: { click: _vm.sayHello } }, [_vm._v("Hello")]),
       _vm._v(" "),
