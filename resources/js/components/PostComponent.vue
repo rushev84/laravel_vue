@@ -2,6 +2,8 @@
     <div>
         <SinglePostComponent></SinglePostComponent>
         <div>Name: {{ name }}</div>
+        <button @click="sayHello">Hello</button>
+        <button @click="sayHi">Hi</button>
     </div>
 </template>
 
@@ -15,6 +17,15 @@
             return {
                 name: 'Vasya',
                 age: 23
+            }
+        },
+
+        methods: {
+            sayHello() {
+                console.log('Hello!')
+            },
+            sayHi() {
+                console.log('Hi!')
             }
         },
 
