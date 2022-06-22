@@ -5311,11 +5311,27 @@ __webpack_require__.r(__webpack_exports__);
         name: 'Petr',
         age: 34,
         job: 'seller'
+      }, {
+        id: 4,
+        name: 'Ivan',
+        age: 17,
+        job: 'trainee'
+      }, {
+        id: 5,
+        name: 'Sergey',
+        age: 35,
+        job: 'director'
       }]
     };
   },
   methods: {},
-  computed: {},
+  computed: {
+    personsAgeMoreTwenty: function personsAgeMoreTwenty() {
+      return this.persons.filter(function (person) {
+        return person.age > 20;
+      });
+    }
+  },
   components: {
     SinglePostComponent: _SinglePostComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
@@ -28020,7 +28036,7 @@ var render = function () {
         _vm._v(" "),
         _c(
           "tbody",
-          _vm._l(_vm.persons, function (person) {
+          _vm._l(_vm.personsAgeMoreTwenty, function (person) {
             return _c("tr", [
               _c("th", { attrs: { scope: "row" } }, [
                 _vm._v(_vm._s(person.id)),
