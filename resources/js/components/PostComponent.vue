@@ -1,10 +1,18 @@
 <template>
-<div>1111111</div>
+    <div>
+        <SinglePostComponent></SinglePostComponent>
+    </div>
 </template>
 
 <script>
+    import SinglePostComponent from "./SinglePostComponent";
+
     export default {
-        name: "PostComponent"
+        name: "PostComponent",
+
+        components: {
+            SinglePostComponent
+        }
     }
 </script>
 
