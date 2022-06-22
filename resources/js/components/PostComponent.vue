@@ -1,7 +1,7 @@
 <template>
     <div>
         <SinglePostComponent></SinglePostComponent>
-        <table class="table w-25">
+        <table class="table">
             <thead>
             <tr>
                 <th scope="col">#</th>
@@ -11,7 +11,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="person in personsAgeMoreTwenty">
+            <tr v-for="person in persons">
                 <th scope="row">{{ person.id }}</th>
                 <td>{{ person.name }}</td>
                 <td>{{ person.age }}</td>
@@ -30,48 +30,22 @@
 
         data() {
             return {
-                persons: [
-                    {
-                        id: 1,
-                        name: 'Vasya',
-                        age: 20,
-                        job: 'programmer'
-                    },
-                    {
-                        id: 2,
-                        name: 'Elena',
-                        age: 25,
-                        job: 'manager'
-                    },
-                    {
-                        id: 3,
-                        name: 'Petr',
-                        age: 34,
-                        job: 'seller'
-                    },
-                    {
-                        id: 4,
-                        name: 'Ivan',
-                        age: 17,
-                        job: 'trainee'
-                    },
-                    {
-                        id: 5,
-                        name: 'Sergey',
-                        age: 35,
-                        job: 'director'
-                    }
-                ]
+                persons: null
             }
         },
 
-        methods: {},
+        mounted() {
+            this.getPersons()
+        },
 
-        computed: {
-            personsAgeMoreTwenty() {
-                return this.persons.filter(person => person.age > 20)
+        methods: {
+            getPersons() {
+                axios.get('/persons')
+                    .then(res => this.persons = res.data)
             }
         },
+
+        computed: {},
 
         components: {
             SinglePostComponent
