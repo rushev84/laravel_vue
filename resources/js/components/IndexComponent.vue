@@ -23,13 +23,7 @@
                     <td><a href="#" @click.prevent="deletePerson(person.id)"
                            class="btn btn-danger">Delete</a></td>
                 </tr>
-                <tr :class="isEdit(person.id) ? '' : 'd-none'">
-                    <th scope="row">{{ person.id }}</th>
-                    <td><input type="text" v-model="name" class="form-control"></td>
-                    <td><input type="number" v-model="age" class="form-control"></td>
-                    <td><input type="text" v-model="job" class="form-control"></td>
-                    <td><a href="#" @click.prevent="updatePerson(person.id)" class="btn btn-success">Update</a></td>
-                </tr>
+                <EditComponent :person="person" :ref="`edit_${person.id}`"></EditComponent>
             </template>
             </tbody>
         </table>
@@ -37,6 +31,7 @@
 </template>
 
 <script>
+    import EditComponent from "./EditComponent";
     export default {
         name: "IndexComponent",
 
@@ -73,9 +68,11 @@
 
             changeEditPersonId(id, name, age, job) {
                 this.editPersonId = id
-                this.name = name
-                this.age = age
-                this.job = job
+                let editName = `edit_${id}`
+                let fullEditName = this.$refs[editName][0]
+                fullEditName.name = name
+                fullEditName.age = age
+                fullEditName.job = job
             },
 
             isEdit(id) {
@@ -86,7 +83,9 @@
 
         computed: {},
 
-        components: {}
+        components: {
+            EditComponent
+        }
     }
 </script>
 
