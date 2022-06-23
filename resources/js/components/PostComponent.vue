@@ -1,7 +1,7 @@
 <template>
     <div class="p-5">
         <CreateComponent></CreateComponent>
-        <IndexComponent></IndexComponent>
+        <IndexComponent ref="index"></IndexComponent>
     </div>
 </template>
 
@@ -22,7 +22,8 @@
 
         },
 
-        methods: {},
+        methods: {
+        },
 
         computed: {},
 

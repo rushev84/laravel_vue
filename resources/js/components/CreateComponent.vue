@@ -23,8 +23,12 @@
             return {
                 name: null,
                 age: null,
-                job: null
+                job: null,
             }
+        },
+
+        mounted() {
+
         },
 
         methods: {
@@ -34,9 +38,11 @@
                         this.name = null,
                         this.age = null,
                         this.job = null,
+                        this.$parent.$refs.index.getPeople()
                     )
             }
-        }
+        },
+
     }
 
 

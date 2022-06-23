@@ -80,7 +80,8 @@
 
             isEdit(id) {
                 return this.editPersonId === id
-            }
+            },
+
         },
 
         computed: {},

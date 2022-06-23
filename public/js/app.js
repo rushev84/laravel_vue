@@ -5292,13 +5292,14 @@ __webpack_require__.r(__webpack_exports__);
       job: null
     };
   },
+  mounted: function mounted() {},
   methods: {
     addPerson: function addPerson() {
       axios.post('/api/people', {
         name: this.name,
         age: this.age,
         job: this.job
-      }).then(this.name = null, this.age = null, this.job = null);
+      }).then(this.name = null, this.age = null, this.job = null, this.$parent.$refs.index.getPeople());
     }
   }
 });
@@ -28508,7 +28509,11 @@ var render = function () {
   return _c(
     "div",
     { staticClass: "p-5" },
-    [_c("CreateComponent"), _vm._v(" "), _c("IndexComponent")],
+    [
+      _c("CreateComponent"),
+      _vm._v(" "),
+      _c("IndexComponent", { ref: "index" }),
+    ],
     1
   )
 }
